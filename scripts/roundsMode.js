@@ -400,6 +400,19 @@ function confirmDelete(roundId) {
 }
 
 /*************************************************************************
+ * @function deleteRound
+ * @desc
+ * Deletes a round from the "Rounds" table and from local storage
+ * @param roundId -- the unique id of the round to be deleted
+ * @returns -- true if round could be deleted, false otherwise
+ *************************************************************************/
+function deleteRound(roundId) {
+  GlobalUserData.rounds = GlobalUserData.rounds.filter(function (round) {
+      return round.roundNum !== roundId;
+  });
+}
+
+/*************************************************************************
 * @function logRoundForm SUBMIT Handler 
 * @Desc 
 * When the user clicks on the "Add Round" button, we first check the
